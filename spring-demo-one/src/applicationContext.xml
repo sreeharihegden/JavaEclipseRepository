@@ -9,8 +9,11 @@
 
     <!-- Define your beans here -->
 	<bean id = "myCoach" 
-			class = "com.github.sreeharihegden.springdemo.TrackCoach">
-	</bean>    
+			class = "com.github.sreeharihegden.springdemo.BaseballCoach">
+	</bean>  
+	<bean id = "myGolfCoach" 
+			class = "com.github.sreeharihegden.springdemo.GolfCoach">
+	</bean>  
 </beans>
 
 
