@@ -33,8 +33,13 @@
 	
 	<bean id = "myCricketCoach" 
 			class = "com.github.sreeharihegden.springdemo.CricketCoach">
+			
 			<!-- Set up Setter Injection -->
 			<property name="fortuneService" ref="myFortuneService" /> <!-- Spring will look for setFortuneService by adding set and capitalizing F. -->
+			
+			<!-- Injecting Literal Values -->
+			<property name="emailAddress" value="myemailid@gmail.com" />
+			<property name="team" value="My Team Name" />
 	</bean>  
 </beans>
 

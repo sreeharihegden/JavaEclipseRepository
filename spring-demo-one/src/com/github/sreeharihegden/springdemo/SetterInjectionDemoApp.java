@@ -17,6 +17,10 @@ public class SetterInjectionDemoApp {
 		System.out.println(theCoach.getDailyWorkout());
 		System.out.println(theCoach.getDailyFortune());
 		
+		// Call new methods to get the Literal Values Injected.
+		System.out.println(theCoach.getEmailAddress());
+		System.out.println(theCoach.getTeam());
+		
 		// Close the context.
 		context.close();
 	}
