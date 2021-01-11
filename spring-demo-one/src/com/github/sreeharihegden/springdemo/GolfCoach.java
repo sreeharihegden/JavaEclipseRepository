@@ -2,6 +2,12 @@ package com.github.sreeharihegden.springdemo;
 
 public class GolfCoach implements Coach{
 	
+	private FortuneService fortuneService;
+	
+	public GolfCoach(FortuneService theFortuneService) {
+		fortuneService = theFortuneService;		
+	}
+	
 	@Override
 	public String getDailyWorkout() {
 		return "Golf Coach says: Practice your putting skills for 2 hours today.";
@@ -9,8 +15,6 @@ public class GolfCoach implements Coach{
 
 	@Override
 	public String getDailyFortune() {
-		// TODO Auto-generated method stub
-		return null;
+		return fortuneService.getFortune();
 	}
-
 }

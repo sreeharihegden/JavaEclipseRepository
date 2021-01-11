@@ -7,28 +7,39 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+	<!-- Load the properties file for Literal Value Injection from sport.properties. -->
+	<context:property-placeholder location="classpath:/sport.properties"/>
+	
     <!-- Define your beans here -->
 
 	<!-- Define the Dependency -->
 	<bean id = "myFortuneService" 
 			class = "com.github.sreeharihegden.springdemo.HappyFortuneService">
 	</bean>  
+	<bean id = "myRandomFortuneService" 
+			class = "com.github.sreeharihegden.springdemo.RandomFortuneService">
+	</bean>  
 	
 
 	<bean id = "myCoach" 
 			class = "com.github.sreeharihegden.springdemo.BaseballCoach">
+			
 			<!-- Set up Constructor Injection -->
 			<constructor-arg ref="myFortuneService"/>
 	</bean>  
 	
 	<bean id = "myTrackCoach" 
 			class = "com.github.sreeharihegden.springdemo.TrackCoach">
+			
 			<!-- Set up Constructor Injection -->
 			<constructor-arg ref="myFortuneService"/>
 	</bean>  
 	
 	<bean id = "myGolfCoach" 
 			class = "com.github.sreeharihegden.springdemo.GolfCoach">
+			
+			<!-- Set up Constructor Injection -->
+			<constructor-arg ref="myRandomFortuneService"/>
 	</bean> 
 	
 	<bean id = "myCricketCoach" 
@@ -38,8 +49,13 @@
 			<property name="fortuneService" ref="myFortuneService" /> <!-- Spring will look for setFortuneService by adding set and capitalizing F. -->
 			
 			<!-- Injecting Literal Values -->
+			<!-- 
 			<property name="emailAddress" value="myemailid@gmail.com" />
 			<property name="team" value="My Team Name" />
+			-->
+			<!-- Injecting Literal Values from Properties File. -->
+			<property name="emailAddress" value="${foo.email}" />
+			<property name="team" value="${foo.team}" />
 	</bean>  
 </beans>
 
